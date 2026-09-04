@@ -21,7 +21,7 @@ export default function SignupPage({ handleSignUpOrLogin }: SignupPageProps) {
     try {
       await userService.signup(state);
       handleSignUpOrLogin();
-      navigate("/profile");
+      navigate("/dashboard");
     } catch {
       setError("Could not sign up — that email may already be in use");
     }

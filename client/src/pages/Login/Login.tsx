@@ -21,7 +21,7 @@ export default function LoginPage({ handleSignUpOrLogin }: LoginPageProps) {
     try {
       await userService.login(state);
       handleSignUpOrLogin();
-      navigate("/profile");
+      navigate("/dashboard");
     } catch {
       setError("Invalid email or password");
     }

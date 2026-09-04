@@ -9,7 +9,7 @@ import Recipes from "./pages/Recipes/Recipes";
 import SpoonBot from "./pages/SpoonBot/SpoonBot";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
-import Profile from "./pages/Dashboard/Dashboard";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 
 function App() {
@@ -41,7 +41,7 @@ function App() {
             <Route path="/signup" 
               element={ user ? (<Navigate to="/dashboard" />) : (<Signup handleLogin={handleLogin} /> )} />
             
-            <Route path="/dashboard "
+            <Route path="/dashboard"
               element={ user ? (<Dashboard />) : (<Navigate to="/login" /> )} />
 
           </Routes>
