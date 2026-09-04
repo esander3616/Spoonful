@@ -17,8 +17,6 @@ function Dashboard() {
   useEffect(() => {
     const fetchMyRecipes = async () => {
       try {
-        // No "my recipes" endpoint on the backend — GET /api/recipes
-        // returns everything, so filter to this user's own client-side.
         const response = await axios.get<Recipe[]>(`${BASE_URL}/api/recipes`);
         setRecipes(response.data.filter((r) => r.ownerId === user?._id));
       } catch (err) {

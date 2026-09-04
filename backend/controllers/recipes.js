@@ -64,18 +64,15 @@ async function create(req, res) {
 }
 
 async function getAll(req, res) {
-  console.log("Hello");
-  try {
-    const { title, tag, ingredient } = req.query;
+    try {
+    const { q } = req.query;
     const query = {};
-    if (title) {
-      query.title = { $regex: title, $options: "i" };
-    }
-    if (tag) {
-      query.tags = tag;
-    }
-    if (ingredient) {
-      query["ingredients.name"] = ingredient;
+    if (q) {
+      query.$or = [
+        { title: { $regex: q, $options: "i" } },
+        { tags: { $regex: q, $options: "i" } },
+        { "ingredients.name": { $regex: q, $options: "i" } },
+      ];
     }
     const recipes = await Recipe.find(query);
     res.json(recipes);
