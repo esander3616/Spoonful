@@ -1,0 +1,1 @@
+export default function SpoonBot() { return <h1>SpoonBot</h1>;}
