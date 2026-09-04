@@ -15,7 +15,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 function App() {
   const [user, setUser] = useState<User | null>(userService.getUser());
 
-  function handleLogin() {
+  function handleSignUpOrLogin() {
     setUser(userService.getUser());
   }
 
@@ -36,10 +36,10 @@ function App() {
             <Route path="/ai" element={<SpoonBot />} />
 
             <Route path="/login" 
-              element={ user ? (<Navigate to="/dashboard" />) : (<Login handleLogin={handleLogin} /> )} />
+              element={ user ? (<Navigate to="/dashboard" />) : (<Login handleSignUpOrLogin={handleSignUpOrLogin} /> )} />
               
             <Route path="/signup" 
-              element={ user ? (<Navigate to="/dashboard" />) : (<Signup handleLogin={handleLogin} /> )} />
+              element={ user ? (<Navigate to="/dashboard" />) : (<Signup handleSignUpOrLogin={handleSignUpOrLogin} /> )} />
             
             <Route path="/dashboard"
               element={ user ? (<Dashboard />) : (<Navigate to="/login" /> )} />

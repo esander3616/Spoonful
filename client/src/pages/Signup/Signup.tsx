@@ -22,9 +22,11 @@ export default function SignupPage({ handleSignUpOrLogin }: SignupPageProps) {
       await userService.signup(state);
       handleSignUpOrLogin();
       navigate("/dashboard");
-    } catch {
+
+    } catch (err) {
+      console.error(err.response?.data);
       setError("Could not sign up — that email may already be in use");
-    }
+    } 
   }
 
   return (

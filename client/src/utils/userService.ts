@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { User } from "../shared.types";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000/api/users";
+const API_URL = `${import.meta.env.VITE_BACKEND_URL || "http://localhost:3000"}/api/users`;
 
 type Credentials = {
     email: string;
